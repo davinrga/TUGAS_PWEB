@@ -5,7 +5,6 @@ export default function Header({ onReportClick }) {
     <header className="mb-6 flex items-center justify-between bg-gradient-to-r from-indigo-600 via-sky-500 to-cyan-400 text-white rounded-xl p-4 shadow-lg">
       <div>
         <h1 className="text-2xl font-extrabold drop-shadow">Absensi Mahasiswa Gunadarma</h1>
-        <p className="text-sm opacity-90">CRUD mahasiswa & catat kehadiran per minggu dalam bulan — data disimpan di browser.</p>
       </div>
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2">
