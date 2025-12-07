@@ -188,10 +188,33 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white p-6">
       <div className="max-w-6xl mx-auto">
-        <Header onReportClick={() => setView('report')} />
+        <Header onReportClick={() => setView('report')} onClassesClick={() => setView('classes')} />
 
         {view === 'report' ? (
           <Report attendance={attendance} students={students} classes={classes} reportFilterClassId={reportFilterClassId} setReportFilterClassId={setReportFilterClassId} onBack={() => setView('home')} />
+        ) : view === 'classes' ? (
+          <main className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <section className="lg:col-span-2">
+              <div className="bg-white p-6 rounded-xl shadow-md">
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="text-lg font-semibold">Kelola Kelas</h2>
+                  <div>
+                    <button onClick={() => setView('home')} className="px-3 py-2 rounded bg-indigo-600 text-white">Kembali</button>
+                  </div>
+                </div>
+                <ClassManager
+                  classes={classes}
+                  className={className}
+                  setClassName={setClassName}
+                  editingClassId={editingClassId}
+                  startEditClass={startEditClass}
+                  addClass={addClass}
+                  saveEditClass={saveEditClass}
+                  deleteClass={deleteClass}
+                />
+              </div>
+            </section>
+          </main>
         ) : (
           <main className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <StudentForm
@@ -222,21 +245,6 @@ export default function App() {
               />
 
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                <div className="lg:col-span-3">
-                  <div className="bg-white p-6 rounded-xl shadow-md mb-4">
-                    <ClassManager
-                      classes={classes}
-                      className={className}
-                      setClassName={setClassName}
-                      editingClassId={editingClassId}
-                      startEditClass={startEditClass}
-                      addClass={addClass}
-                      saveEditClass={saveEditClass}
-                      deleteClass={deleteClass}
-                    />
-                  </div>
-                </div>
-
                 <div className="lg:col-span-3">
                   <div className="bg-white p-4 rounded-xl shadow-md">
                     <AttendanceList
