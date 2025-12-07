@@ -262,7 +262,6 @@ export default function App() {
           </main>
         )}
 
-        <footer className="mt-6 text-sm text-gray-500 text-center">Catatan: data disimpan secara lokal di browser (localStorage).</footer>
       </div>
     </div>
   );

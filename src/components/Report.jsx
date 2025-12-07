@@ -4,6 +4,27 @@ export default function Report({ attendance, students, classes, reportFilterClas
   const months = Object.keys(attendance).sort();
   const visibleStudents = students.filter((s) => (reportFilterClassId ? s.classId === reportFilterClassId : true));
 
+  // Compute total presences per class (including students without class)
+  const classTotals = (() => {
+    const totals = {};
+    const allMonths = months;
+    // helper to add for a student id into class totals
+    const addForStudent = (classId, studentId) => {
+      const studentTotal = allMonths.reduce((acc, month) => {
+        const weeks = attendance[month] || {};
+        return acc + ['M1','M2','M3','M4'].reduce((a, w) => a + (weeks[w] && weeks[w][studentId] ? 1 : 0), 0);
+      }, 0);
+      totals[classId] = (totals[classId] || 0) + studentTotal;
+    };
+
+    students.forEach((s) => {
+      const cid = s.classId || '__no_class__';
+      addForStudent(cid, s.id);
+    });
+
+    return totals;
+  })();
+
   return (
     <main>
       <div className="bg-white p-6 rounded-xl shadow">
