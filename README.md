@@ -83,9 +83,3 @@ npm run preview
 - Pindahkan aset ke `src/assets/` dan tambah pengaturan bundling jika diperlukan.
 - Tambahkan ekspor CSV/impor untuk backup data atau pertimbangkan backend (Node + DB) jika butuh persistence multi-user.
 
-## Lisensi
-Proyek ini adalah demo/skripsi/tugas lokal — tambahkan lisensi jika perlu.
-
----
-
-File `README.md` ini telah dibuat otomatis. Jika Anda ingin saya juga commit file ini ke git atau memecah `src/app.jsx` menjadi komponen, beri tahu pilihan Anda.
