@@ -78,8 +78,3 @@ npm run preview
 - Jika Vite memilih port lain, perhatikan URL yang dicetak di terminal.
 - Untuk membersihkan data uji: buka DevTools → Application → Local Storage → hapus key `absen_students`, `absen_classes`, `absen_attendance`.
 
-## Saran pengembangan / refaktor (opsional)
-- Pisahkan `src/app.jsx` menjadi beberapa komponen di `src/components/` (mis. `StudentForm.jsx`, `ClassList.jsx`, `ReportTable.jsx`) untuk maintainability.
-- Pindahkan aset ke `src/assets/` dan tambah pengaturan bundling jika diperlukan.
-- Tambahkan ekspor CSV/impor untuk backup data atau pertimbangkan backend (Node + DB) jika butuh persistence multi-user.
-
