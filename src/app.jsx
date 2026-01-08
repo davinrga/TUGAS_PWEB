@@ -188,7 +188,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white p-6">
       <div className="max-w-6xl mx-auto">
-        <Header onReportClick={() => setView('report')} onClassesClick={() => setView('classes')} />
+        <Header onHomeClick={() => setView('home')} onReportClick={() => setView('report')} onClassesClick={() => setView('classes')} />
 
         {view === 'report' ? (
           <Report attendance={attendance} students={students} classes={classes} reportFilterClassId={reportFilterClassId} setReportFilterClassId={setReportFilterClassId} onBack={() => setView('home')} />
